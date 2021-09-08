@@ -8,3 +8,5 @@ Vous devez faire un petit jeu vidéo basé sur les règles de Duck Hunt. • Le 
 Usage:
 
 ./my_hunter
+
+Echap for exit or crtl c
