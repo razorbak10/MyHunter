@@ -10,6 +10,18 @@
 #include <SFML/Graphics.h>
 #include <SFML/Config.h>
 #include <stdlib.h>
+/*
+** EPITECH PROJECT, 2019
+** hunter
+** File description:
+** 
+*/
+
+#include <SFML/Window.h>
+#include <SFML/Audio.h>
+#include <SFML/Graphics.h>
+#include <SFML/Config.h>
+#include <stdlib.h>
 
 int main(int ac , char **av)
 {
@@ -33,13 +45,14 @@ int main(int ac , char **av)
     sfVector2f grandeur_close = {200, 150};
     sfVector2f position2;
 
-    window = sfRenderWindow_create(mode, "Happy Hunter", sfFullscreen | sfClose, NULL);
+    window = sfRenderWindow_create(mode, "Happy Hunter", sfResize | sfClose, NULL);
 
     texture = sfTexture_createFromFile("texture/la.png", NULL);
     button_play = sfTexture_createFromFile("texture/bouton_play1.png",NULL);
     
     sprite = sfSprite_create();
     sprite_button = sfSprite_create();
+    int closed = 0;
 
     sfSprite_setTexture(sprite, texture, sfTrue);
     sfSprite_setTexture(sprite_button, button_play,sfTrue);
@@ -57,7 +70,7 @@ int main(int ac , char **av)
        
         while (sfRenderWindow_pollEvent(window, &event))
         {
-            if (event.type = sfEvtClosed || sfKeyboard_isKeyPressed(sfKeyEscape) || sfKeyboard_isKeyPressed(sfKeyLControl) && sfKeyboard_isKeyPressed(sfKeyC)) {
+            if (event.type = sfEvtClosed || closed == 1 ||  sfKeyboard_isKeyPressed(sfKeyEscape) || sfKeyboard_isKeyPressed(sfKeyLControl) && sfKeyboard_isKeyPressed(sfKeyC)) {
                 sfRenderWindow_close(window);
             }
             if (event.type = sfEvtClosed || sfKeyboard_isKeyPressed(sfKeyEnter)) {
@@ -68,11 +81,7 @@ int main(int ac , char **av)
                     My_Hunter(window);
                 }
             }
-            
 
-            
-            
-        
         }
         sfRenderWindow_display(window);
         sfRenderWindow_drawSprite(window, sprite, NULL); 
@@ -100,18 +109,11 @@ void my_putchar(char c){
 void check_help(int ac , char **av)
 {
     if (ac < 2 )
-    return;
-
+    return(0);
     for (int i = 1; i <= ac; i++) {
         if (av[i][0] == '-' && av[i][1] == 'h'){
             my_putstr("les regles du jeux tire sur les ballons pour avoir le plus de point\n");
             return(0);
-
-
         }  
     }
-
-
-
-
 }

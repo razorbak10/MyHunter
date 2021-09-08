@@ -4,6 +4,12 @@
 ** File description:
 ** de
 */
+/*
+** EPITECH PROJECT, 2019
+** de
+** File description:
+** de
+*/
 #include <SFML/Window.h>
 #include <SFML/Audio.h>
 #include <SFML/Graphics.h>
@@ -238,7 +244,7 @@ int My_Hunter(sfRenderWindow *window)
                 sfClock_restart(clock3);
                 }
                 if (sfTime_asMilliseconds(sfClock_getElapsedTime(clock_lapin)) > 0.01) {
-                    vector_lapin.x = vector_lapin.x + 10;
+                    vector_lapin.x = vector_lapin.x + 3;
                     sfClock_restart(clock_lapin);
                 }
 
@@ -300,7 +306,7 @@ int My_Hunter(sfRenderWindow *window)
                 if (souris2.x >= vector_lapin.x && souris2.x <= vector_lapin.x +79 && souris2.y >= vector_lapin.y && souris2.y <= vector_lapin.y +138)
                 {
                     vector_lapin.x = -10000;
-                    scorre = scorre + 3000;
+                    scorre = scorre + 150;
                     sfText_setString(score2,nb_tochar(scorre));
 
                 }
